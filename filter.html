@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title data-i18n="filter_title"></title>
+  <link rel="stylesheet" href="filter.css">
+</head>
+<body>
+  <h1 data-i18n="filter_title"></h1>
+  <div class="controls">
+    <div class="filter-group">
+      <label for="filter-ext" data-i18n="filter_extLabel"></label>
+      <input type="text" id="filter-ext" data-i18n-placeholder="filter_extPlaceholder" list="ext-history-list">
+      <datalist id="ext-history-list"></datalist>
+    </div>
+    <div class="filter-group">
+        <label for="filter-keyword" data-i18n="filter_regexLabel"></label>
+        <input type="text" id="filter-keyword" data-i18n-placeholder="filter_regexPlaceholder" list="regex-history-list">
+        <datalist id="regex-history-list"></datalist>
+    </div>
+  <div class="button-group">
+      <button id="select-all" data-i18n="filter_selectAll"></button>
+      <button id="deselect-all" data-i18n="filter_deselectAll"></button>
+  </div>
+    <div class="filter-group">
+        <div class="toggle-switch">
+          <label data-i18n="filter_contentTypeLabel"></label>
+            <input type="radio" id="filter-link" name="filter-type" value="link" checked />
+            <label for="filter-link" data-i18n="filter_typeLink"></label>
+            <input type="radio" id="filter-all" name="filter-type" value="all" />
+            <label for="filter-all" data-i18n="filter_typeAll"></label>
+        </div>
+    </div>
+  </div>
+
+  <div id="links-container">
+  </div>
+
+  <div class="actions">
+    <button id="download-selected" data-i18n="filter_downloadSelected"></button>
+    <button id="copy-selected" data-i18n="filter_copySelected"></button>
+    <div id="selection-info"></div>
+  </div>
+  
+  <div id="copy-message" class="copy-message">
+  </div>
+
+  <script src="i18n.js"></script>
+  <script src="filter.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+    "appName": { "message": "ppGather" },
+    "appDescription": { "message": "ページからコンテンツを抽出してダウンロードし、スワイプをサポートします。" },
+
+    "manage_title": { "message": "ダウンロード管理" },
+    "sidebar_title": { "message": "タスク分類" },
+    "sidebar_all": { "message": "すべてのタスク" },
+    "sidebar_downloading": { "message": "ダウンロード中" },
+    "sidebar_error": { "message": "エラータスク" },
+    "sidebar_complete": { "message": "完了済み" },
+
+    "toolbar_startSelected": { "message": "開始" },
+    "toolbar_pauseSelected": { "message": "一時停止" },
+    "toolbar_deleteSelected": { "message": "削除" },
+    "toolbar_startAll": { "message": "すべて開始" },
+    "toolbar_pauseAll": { "message": "すべて一時停止" },
+    "toolbar_clearComplete": { "message": "完了済みを消去" },
+    "toolbar_clearAll": { "message": "すべて消去" },
+    "toolbar_clearError": { "message": "エラーを消去" },
+
+    "table_header_filename": { "message": "ファイル名" },
+    "table_header_size": { "message": "サイズ" },
+    "table_header_progress": { "message": "進捗" },
+    "table_header_speed": { "message": "速度" },
+    "table_header_status": { "message": "ステータス" },
+
+    "context_menu_start": { "message": "開始" },
+    "context_menu_pause": { "message": "一時停止" },
+    "context_menu_delete": { "message": "削除" },
+    "context_menu_selectAll": { "message": "すべて選択" },
+    "context_menu_deselectAll": { "message": "すべての選択を解除" },
+
+    "js_statusQueued": { "message": "待機中" },
+    "js_statusInProgress": { "message": "ダウンロード中" },
+    "js_statusComplete": { "message": "完了" },
+    "js_statusError": {
+        "message": "エラー: $error$",
+        "placeholders": { "error": { "content": "$1" } }
+    },
+    "js_statusRetrying": { "message": "再試行中" },
+    "js_statusPaused": { "message": "一時停止中" },
+    "js_statusUnknown": { "message": "不明" },
+    "js_noTasks": { "message": "ダウンロードタスクはありません" },
+    "js_selectAtLeastOne": { "message": "少なくとも1つのタスクを選択してください。" },
+    "js_confirmClearComplete": { "message": "完了したタスクをすべて消去してもよろしいですか？" },
+    "js_confirmClearAll": { "message": "すべてのタスクを消去してもよろしいですか？この操作は元に戻せません！" },
+    "js_confirmClearError": { "message": "すべてのエラータスクを消去してもよろしいですか？" },
+
+    "filter_title": { "message": "コンテンツフィルタリング" },
+    "filter_extLabel": { "message": "拡張子でフィルタ (カンマ区切り、例: jpg,pdf,zip):" },
+    "filter_extPlaceholder": { "message": "例: jpg,png,gif" },
+    "filter_regexLabel": { "message": "正規表現でフィルタ (URLまたはテキストに含まれる):" },
+    "filter_regexPlaceholder": { "message": "例: \\.pdf$ または (jpg|png)" },
+    "filter_selectAll": { "message": "すべて選択" },
+    "filter_deselectAll": { "message": "選択解除" },
+    "filter_contentTypeLabel": { "message": "コンテンツタイプ:" },
+    "filter_typeLink": { "message": "リンク" },
+    "filter_typeAll": { "message": "すべてのコンテンツ" },
+    "filter_downloadSelected": { "message": "選択項目をダウンロード" },
+    "filter_copySelected": { "message": "選択項目をコピー" },
+    "filter_selectionInfo": {
+        "message": "選択済み: $selected$ / $total$",
+        "placeholders": {
+            "selected": { "content": "$1" },
+            "total": { "content": "$2" }
+        }
+    },
+    "filter_copySuccess": { "message": "コンテンツがコピーされました！" },
+    "filter_copyFail": { "message": "コピーに失敗しました。手動でコピーしてください！" },
+    "filter_selectToDownload": { "message": "ダウンロードするリンクを少なくとも1つ選択してください！" },
+    "filter_selectToCopy": { "message": "コピーするアイテムを少なくとも1つ選択してください！" },
+    "filter_noContent": { "message": "指定された範囲にコンテンツが見つかりませんでした。" },
+
+    "options_title": { "message": "設定" },
+    "options_concurrency": { "message": "最大同時タスク数:" },
+    "options_interval": { "message": "新規タスク開始間隔 (ミリ秒):" },
+    "options_retries": { "message": "失敗時の再試行回数:" },
+    "options_save": { "message": "保存" },
+    "options_saveSuccess": { "message": "設定が保存されました。" },
+
+    "bg_ctxMenu_downloadAll": { "message": "ページのすべてのリソースをダウンロード" },
+    "bg_ctxMenu_downloadSelection": { "message": "選択範囲内のリンクをダウンロード" },
+    "bg_ctxMenu_openManager": { "message": "ダウンロードマネージャーを開く" },
+
+    "mngPage_tabTasks": { "message": "ダウンロードタスク" },
+    "mngPage_tabSettings": { "message": "設定" },
+
+    "toolbar_openDownloadsFolder":{ "message":"ダウンロードフォルダを開く"}
+}

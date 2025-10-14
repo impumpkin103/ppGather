@@ -1,0 +1,89 @@
+{
+    "appName": { "message": "ppGather" },
+    "appDescription": { "message": "提取和下载页面中的内容, 支持划选" },
+    
+    "manage_title": { "message": "下载管理器" },
+    "sidebar_title": { "message": "任务分类" },
+    "sidebar_all": { "message": "全部任务" },
+    "sidebar_downloading": { "message": "下载中" },
+    "sidebar_error": { "message": "错误任务" },
+    "sidebar_complete": { "message": "已完成" },
+
+    "toolbar_startSelected": { "message": "开始" },
+    "toolbar_pauseSelected": { "message": "暂停" },
+    "toolbar_deleteSelected": { "message": "删除" },
+    "toolbar_startAll": { "message": "开始全部" },
+    "toolbar_pauseAll": { "message": "暂停全部" },
+    "toolbar_clearComplete": { "message": "清空已完成" },
+    "toolbar_clearAll": { "message": "清空全部任务" },
+    "toolbar_clearError": { "message": "清空错误任务" },
+
+    "table_header_filename": { "message": "文件名" },
+    "table_header_size": { "message": "大小" },
+    "table_header_progress": { "message": "进度" },
+    "table_header_speed": { "message": "速度" },
+    "table_header_status": { "message": "状态" },
+
+    "context_menu_start": { "message": "开始" },
+    "context_menu_pause": { "message": "暂停" },
+    "context_menu_delete": { "message": "删除" },
+    "context_menu_selectAll": { "message": "选择全部" },
+    "context_menu_deselectAll": { "message": "取消选择" },
+
+    "js_statusQueued": { "message": "等待中" },
+    "js_statusInProgress": { "message": "下载中" },
+    "js_statusComplete": { "message": "已完成" },
+    "js_statusError": {
+        "message": "错误: $error$",
+        "placeholders": { "error": { "content": "$1" } }
+    },
+    "js_statusRetrying": { "message": "重试中" },
+    "js_statusPaused": { "message": "已暂停" },
+    "js_statusUnknown": { "message": "未知" },
+    "js_noTasks": { "message": "暂无下载任务" },
+    "js_selectAtLeastOne": { "message": "请至少选择一个任务。" },
+    "js_confirmClearComplete": { "message": "确定要清空所有已完成的任务吗？" },
+    "js_confirmClearAll": { "message": "确定要清空所有任务吗？此操作不可逆！" },
+    "js_confirmClearError": { "message": "确定要清空所有错误任务吗？" },
+
+    "filter_title": { "message": "内容筛选" },
+    "filter_extLabel": { "message": "按扩展名过滤 (用逗号分隔, 如: jpg,pdf,zip):" },
+    "filter_extPlaceholder": { "message": "例如: jpg,png,gif" },
+    "filter_regexLabel": { "message": "按正则表达式过滤 (URL或文本中包含):" },
+    "filter_regexPlaceholder": { "message": "例如: \\.pdf$ 或 (jpg|png)" },
+    "filter_selectAll": { "message": "全选" },
+    "filter_deselectAll": { "message": "全不选" },
+    "filter_contentTypeLabel": { "message": "内容类型:" },
+    "filter_typeLink": { "message": "链接" },
+    "filter_typeAll": { "message": "所有内容" },
+    "filter_downloadSelected": { "message": "下载选中项" },
+    "filter_copySelected": { "message": "复制选中项" },
+    "filter_selectionInfo": {
+        "message": "已选中: $selected$ / $total$",
+        "placeholders": {
+            "selected": { "content": "$1" },
+            "total": { "content": "$2" }
+        }
+    },
+    "filter_copySuccess": { "message": "内容已复制！" },
+    "filter_copyFail": { "message": "复制失败，请手动选择复制！" },
+    "filter_selectToDownload": { "message": "请至少选择一个要下载的链接！" },
+    "filter_selectToCopy": { "message": "请至少选择一个要复制的内容！" },
+    "filter_noContent": { "message": "在指定范围未找到任何内容。" },
+
+    "options_title": { "message": "设置" },
+    "options_concurrency": { "message": "最大并发任务数:" },
+    "options_interval": { "message": "新任务启动间隔 (毫秒):" },
+    "options_retries": { "message": "失败后重试次数:" },
+    "options_save": { "message": "保存" },
+    "options_saveSuccess": { "message": "选项已保存。" },
+
+    "bg_ctxMenu_downloadAll": { "message": "下载页面所有资源" },
+    "bg_ctxMenu_downloadSelection": { "message": "下载选中内容中的链接" },
+    "bg_ctxMenu_openManager": { "message": "打开扩展管理器" },
+
+    "mngPage_tabTasks": { "message": "下载任务" },
+    "mngPage_tabSettings": { "message": "设置" },
+
+    "toolbar_openDownloadsFolder":{ "message":"打开下载文件夹"}
+}

@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDescription__",
+  "version": "1.0",
+  "default_locale": "zh_CN",
+  "permissions": [
+    "contextMenus",
+    "downloads",
+    "storage",
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "打开下载管理器"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["filter.html", "modal.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

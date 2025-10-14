@@ -1,0 +1,89 @@
+{
+    "appName": { "message": "ppGather" },
+    "appDescription": { "message": "Extract and download content from the page, support swiping." },
+
+    "manage_title": { "message": "Download Manager" },
+    "sidebar_title": { "message": "Task Categories" },
+    "sidebar_all": { "message": "All Tasks" },
+    "sidebar_downloading": { "message": "Downloading" },
+    "sidebar_error": { "message": "Error Tasks" },
+    "sidebar_complete": { "message": "Completed" },
+
+    "toolbar_startSelected": { "message": "Start" },
+    "toolbar_pauseSelected": { "message": "Pause" },
+    "toolbar_deleteSelected": { "message": "Delete" },
+    "toolbar_startAll": { "message": "Start All" },
+    "toolbar_pauseAll": { "message": "Pause All" },
+    "toolbar_clearComplete": { "message": "Clear Completed" },
+    "toolbar_clearAll": { "message": "Clear All Tasks" },
+    "toolbar_clearError": { "message": "Clear Error Tasks" },
+
+    "table_header_filename": { "message": "Filename" },
+    "table_header_size": { "message": "Size" },
+    "table_header_progress": { "message": "Progress" },
+    "table_header_speed": { "message": "Speed" },
+    "table_header_status": { "message": "Status" },
+
+    "context_menu_start": { "message": "Start" },
+    "context_menu_pause": { "message": "Pause" },
+    "context_menu_delete": { "message": "Delete" },
+    "context_menu_selectAll": { "message": "Select All" },
+    "context_menu_deselectAll": { "message": "Deselect All" },
+
+    "js_statusQueued": { "message": "Queued" },
+    "js_statusInProgress": { "message": "Downloading" },
+    "js_statusComplete": { "message": "Complete" },
+    "js_statusError": {
+        "message": "Error: $error$",
+        "placeholders": { "error": { "content": "$1" } }
+    },
+    "js_statusRetrying": { "message": "Retrying" },
+    "js_statusPaused": { "message": "Paused" },
+    "js_statusUnknown": { "message": "Unknown" },
+    "js_noTasks": { "message": "No download tasks" },
+    "js_selectAtLeastOne": { "message": "Please select at least one task." },
+    "js_confirmClearComplete": { "message": "Are you sure you want to clear all completed tasks?" },
+    "js_confirmClearAll": { "message": "Are you sure you want to clear all tasks? This action is irreversible!" },
+    "js_confirmClearError": { "message": "Are you sure you want to clear all error tasks?" },
+
+    "filter_title": { "message": "Content Filtering" },
+    "filter_extLabel": { "message": "Filter by extension (comma-separated, e.g., jpg,pdf,zip):" },
+    "filter_extPlaceholder": { "message": "e.g., jpg,png,gif" },
+    "filter_regexLabel": { "message": "Filter by regular expression (in URL or text):" },
+    "filter_regexPlaceholder": { "message": "e.g., \\.pdf$ or (jpg|png)" },
+    "filter_selectAll": { "message": "Select All" },
+    "filter_deselectAll": { "message": "Deselect All" },
+    "filter_contentTypeLabel": { "message": "Content Type:" },
+    "filter_typeLink": { "message": "Links" },
+    "filter_typeAll": { "message": "All Content" },
+    "filter_downloadSelected": { "message": "Download Selected" },
+    "filter_copySelected": { "message": "Copy Selected" },
+    "filter_selectionInfo": {
+        "message": "Selected: $selected$ / $total$",
+        "placeholders": {
+            "selected": { "content": "$1" },
+            "total": { "content": "$2" }
+        }
+    },
+    "filter_copySuccess": { "message": "Content copied!" },
+    "filter_copyFail": { "message": "Copy failed, please copy manually!" },
+    "filter_selectToDownload": { "message": "Please select at least one link to download!" },
+    "filter_selectToCopy": { "message": "Please select at least one item to copy!" },
+    "filter_noContent": { "message": "No content found in the specified range." },
+
+    "options_title": { "message": "Settings" },
+    "options_concurrency": { "message": "Max concurrent tasks:" },
+    "options_interval": { "message": "New task start interval (ms):" },
+    "options_retries": { "message": "Retries on failure:" },
+    "options_save": { "message": "Save" },
+    "options_saveSuccess": { "message": "Options saved." },
+
+    "bg_ctxMenu_downloadAll": { "message": "Download all resources on page" },
+    "bg_ctxMenu_downloadSelection": { "message": "Download links in selection" },
+    "bg_ctxMenu_openManager": { "message": "Open Download Manager" },
+
+    "mngPage_tabTasks": { "message": "Download Tasks" },
+    "mngPage_tabSettings": { "message": "Settings" },
+
+    "toolbar_openDownloadsFolder":{ "message":"Open the Downloads folder"}
+}

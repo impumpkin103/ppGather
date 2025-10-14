@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title data-i18n="manage_title"></title>
+    <link rel="stylesheet" href="manage.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2 data-i18n="sidebar_title"></h2>
+        <ul>
+            <li><a href="#" id="filter-all" class="active" data-i18n="sidebar_all"></a></li>
+            <li><a href="#" id="filter-downloading" data-i18n="sidebar_downloading"></a></li>
+            <li><a href="#" id="filter-error" data-i18n="sidebar_error"></a></li>
+            <li><a href="#" id="filter-complete" data-i18n="sidebar_complete"></a></li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="main-header">
+            <h1 data-i18n="manage_title"></h1>
+            <button id="open-download-folder" data-i18n="toolbar_openDownloadsFolder"></button>
+        </div>
+        <div class="toolbar">
+            <button id="start-selected" data-i18n="toolbar_startSelected"></button>
+            <button id="pause-selected" data-i18n="toolbar_pauseSelected"></button>
+            <button id="delete-selected" data-i18n="toolbar_deleteSelected"></button>
+            <button id="start-all-tasks" data-i18n="toolbar_startAll"></button>
+            <button id="pause-all-tasks" data-i18n="toolbar_pauseAll"></button>
+            <button id="clear-all-complete" data-i18n="toolbar_clearComplete"></button>
+            <button id="clear-all-tasks" data-i18n="toolbar_clearAll"></button>
+            <button id="clear-error-tasks" data-i18n="toolbar_clearError"></button>
+        </div>
+        <div class="task-list-wrapper">
+            <table id="task-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="table_header_filename"></th>
+                        <th data-i18n="table_header_size"></th>
+                        <th data-i18n="table_header_progress"></th>
+                        <th data-i18n="table_header_speed"></th>
+                        <th data-i18n="table_header_status"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="context-menu">
+        <div data-action="startTasks" data-i18n="context_menu_start"></div>
+        <div data-action="pauseTasks" data-i18n="context_menu_pause"></div>
+        <div data-action="deleteTasks" data-i18n="context_menu_delete"></div>
+        <hr>
+        <div data-action="select-all" data-i18n="context_menu_selectAll"></div>
+        <div data-action="deselect-all" data-i18n="context_menu_deselectAll"></div>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="manage.js"></script>
+</body>
+</html>
