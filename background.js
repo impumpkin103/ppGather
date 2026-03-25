@@ -122,6 +122,20 @@ class TimerJob{
 let DownloadStatusTimeJob = new TimerJob(processDownloadStatusJob, 500);
 let downloadTasks = new TaskMng();
 downloadTasks.LoadFromStorage();
+
+async function hideDownloadUi() {
+    if (typeof chrome.downloads.setUiOptions !== 'function') {
+        return;
+    }
+
+    try {
+        await chrome.downloads.setUiOptions({ enabled: false });
+    } catch (error) {
+        console.warn('隐藏 Chrome 下载 UI 失败', error);
+    }
+}
+
+void hideDownloadUi();
 // 初始化完
 
 // 监听设置变化
@@ -152,6 +166,7 @@ function processQueue() {
 // 开始一个下载任务
 async function startDownload(task) {
     try {
+        await hideDownloadUi();
         chrome.downloads.download({
             url: task.url,
             filename: task.filename,
@@ -464,6 +479,7 @@ chrome.action.onClicked.addListener((tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(() => {
+    void hideDownloadUi();
     chrome.contextMenus.create({
         id: "download-all-links",
         title: chrome.i18n.getMessage("bg_ctxMenu_downloadAll"),
@@ -484,6 +500,10 @@ chrome.runtime.onInstalled.addListener(() => {
         title: chrome.i18n.getMessage("bg_ctxMenu_openManager"),
         contexts: ["all"],
     });
+});
+
+chrome.runtime.onStartup.addListener(() => {
+    void hideDownloadUi();
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
