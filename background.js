@@ -123,6 +123,8 @@ let DownloadStatusTimeJob = new TimerJob(processDownloadStatusJob, 500);
 let downloadTasks = new TaskMng();
 downloadTasks.LoadFromStorage();
 
+let downloadUiHideOwners = 0;
+
 async function hideDownloadUi() {
     if (typeof chrome.downloads.setUiOptions !== 'function') {
         return;
@@ -135,7 +137,43 @@ async function hideDownloadUi() {
     }
 }
 
-void hideDownloadUi();
+async function showDownloadUi() {
+    if (typeof chrome.downloads.setUiOptions !== 'function') {
+        return;
+    }
+
+    try {
+        await chrome.downloads.setUiOptions({ enabled: true });
+    } catch (error) {
+        console.warn('恢复 Chrome 下载 UI 失败', error);
+    }
+}
+
+async function acquireDownloadUiHidden() {
+    downloadUiHideOwners++;
+    if (downloadUiHideOwners === 1) {
+        await hideDownloadUi();
+    }
+}
+
+async function releaseDownloadUiHidden() {
+    if (downloadUiHideOwners <= 0) {
+        downloadUiHideOwners = 0;
+        return;
+    }
+
+    downloadUiHideOwners--;
+    if (downloadUiHideOwners === 0) {
+        await showDownloadUi();
+    }
+}
+
+async function resetDownloadUiState() {
+    downloadUiHideOwners = 0;
+    await showDownloadUi();
+}
+
+void resetDownloadUiState();
 // 初始化完
 
 // 监听设置变化
@@ -166,7 +204,7 @@ function processQueue() {
 // 开始一个下载任务
 async function startDownload(task) {
     try {
-        await hideDownloadUi();
+        await acquireDownloadUiHidden();
         chrome.downloads.download({
             url: task.url,
             filename: task.filename,
@@ -174,6 +212,7 @@ async function startDownload(task) {
             conflictAction: 'uniquify' // 自动重命名同名文件            
         }, (downloadId) => {
             if (chrome.runtime.lastError) {
+                void releaseDownloadUiHidden();
                 handleDownloadError(task, chrome.runtime.lastError.message);
             } else {
                 task.downloadId = downloadId;
@@ -185,6 +224,7 @@ async function startDownload(task) {
             }
         });
     } catch (error) {
+        await releaseDownloadUiHidden();
         console.log(`下载失败: ${task.url}`, error);
         handleDownloadError(task, error.message);
     }
@@ -212,6 +252,7 @@ function handleDownloadComplte(task){
     task.status = 'complete';
     task.downloadId = null
     task.speed = 0;
+    void releaseDownloadUiHidden();
     activeDownloads--;
     processQueue();
 }
@@ -219,6 +260,7 @@ function handleDownloadComplte(task){
 function handleDownloadPaused(task){
     task.status = 'paused';
     task.speed = 0;
+    void releaseDownloadUiHidden();
     activeDownloads--;
     processQueue();
 }
@@ -228,6 +270,7 @@ function handleDownloadinterrupted(task, msg){
     task.status = 'error';
     task.error = msg;
     task.downloadId = null
+    void releaseDownloadUiHidden();
     activeDownloads--;
     processQueue();
 }
@@ -244,6 +287,7 @@ function handleDownloadError(task, errorMessage) {
     chrome.downloads.erase({id:task.downloadId})
     task.downloadId = null
     downloadTasks.update(task);
+    void releaseDownloadUiHidden();
     activeDownloads--;
     processQueue();
 }
@@ -362,6 +406,7 @@ async function pauseTasks(taskIds) {
             chrome.downloads.pause(task.downloadId, () => {
                 task.status = 'paused';
                 downloadTasks.update(task);
+                void releaseDownloadUiHidden();
                 activeDownloads--;
             });
         }
@@ -389,6 +434,7 @@ async function deleteTasks(taskIds) {
         if (task && task.downloadId) {
             chrome.downloads.cancel(task.downloadId, () => {
                 console.log(`已取消 chrome.downloads ID: ${task.downloadId}`);
+                void releaseDownloadUiHidden();
             });
             activeDownloads--;
         }
@@ -479,7 +525,7 @@ chrome.action.onClicked.addListener((tab) => {
 });
 
 chrome.runtime.onInstalled.addListener(() => {
-    void hideDownloadUi();
+    void resetDownloadUiState();
     chrome.contextMenus.create({
         id: "download-all-links",
         title: chrome.i18n.getMessage("bg_ctxMenu_downloadAll"),
@@ -503,7 +549,7 @@ chrome.runtime.onInstalled.addListener(() => {
 });
 
 chrome.runtime.onStartup.addListener(() => {
-    void hideDownloadUi();
+    void resetDownloadUiState();
 });
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
